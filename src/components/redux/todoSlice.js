@@ -1,4 +1,5 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import toast, { Toaster } from 'react-hot-toast';
 
 export const getTodoAsync = createAsyncThunk("todos/getTodoAync", async () => {
 	const res = await fetch("http://localhost:7000/todos");
@@ -11,46 +12,63 @@ export const getTodoAsync = createAsyncThunk("todos/getTodoAync", async () => {
 export const addTodoAsync = createAsyncThunk(
 	"todos/addTodoAsync",
 	async (payload) => {
-		const res = await fetch("http://localhost:7000/todos", {
-			method: "POST",
-			headers: {
-				"Content-type": "application/json",
-			},
-			body: JSON.stringify({ label: payload.label }),
-		});
-		if (res.ok) {
-			const todo = await res.json();
-			return { todo };
-		}
+        try {
+            const res = await fetch("http://localhost:7000/todos", {
+                method: "POST",
+                headers: {
+                    "Content-type": "application/json",
+                },
+                body: JSON.stringify({ label: payload.label }),
+            });
+            if (res.ok) {
+                const todo = await res.json();
+                return { todo };
+            }
+        } catch (error) {
+            
+            toast.error('La llamada a la API ha fallado!');
+        }
+
+  
 	}
 );
 
 export const toggleCompleteAsync = createAsyncThunk(
 	"todos/toggleCompleteAsync",
 	async (payload) => {
-		const res = await fetch(`http://localhost:7000/todos/${payload.id}`, {
-			method: "PATCH",
-			headers: {
-				"Content-type": "application/json",
-			},
-			body: JSON.stringify({ checked: payload.checked }),
-		});
-		if (res.ok) {
-			const todo = await res.json();
-			return { id: todo.id, checked: todo.checked };
-		}
+        try {
+            const res = await fetch(`http://localhost:7000/todos/${payload.id}`, {
+                method: "PATCH",
+                headers: {
+                    "Content-type": "application/json",
+                },
+                body: JSON.stringify({ checked: payload.checked }),
+            });
+            if (res.ok) {
+                const todo = await res.json();
+                return { id: todo.id, checked: todo.checked };
+            }
+        } catch (error) {
+            toast.error("No se puede marcar/desmarcar, no hay conexión!")
+        }
+
 	}
 );
 
 export const deleteTodoAsync = createAsyncThunk(
 	"todos/deleteTodoAsync",
 	async (payload) => {
-		const res = await fetch(`http://localhost:7000/todos/${payload.id}`, {
-			method: "DELETE",
-		});
-		if (res.ok) {
-			return { id: payload.id };
-		}
+        try {
+            const res = await fetch(`http://localhost:7000/todos/${payload.id}`, {
+                method: "DELETE",
+            });
+            if (res.ok) {
+                return { id: payload.id };
+            }
+        } catch (error) {
+            toast.error("No se puede eliminar, no hay conexión!")
+        }
+
 	}
 );
 

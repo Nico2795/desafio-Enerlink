@@ -1,28 +1,34 @@
 {
   "todos": [
     {
-      "label": "fsdafds",
-      "id": 1,
-      "checked": true
-    },
-    {
-      "label": "",
-      "id": 2,
-      "checked": true
-    },
-    {
-      "label": "dfggfds",
-      "id": 3,
-      "checked": true
-    },
-    {
-      "label": "fdsafds",
-      "id": 4,
+      "id": 0,
+      "label": "Fix an ability to display all tasks",
       "checked": false
     },
     {
-      "label": "",
-      "id": 5
+      "id": 1,
+      "label": "Fix a layout, checkboxes should be listed in a column",
+      "checked": false
+    },
+    {
+      "id": 2,
+      "label": "Fix an ability to add a new task",
+      "checked": false
+    },
+    {
+      "id": 3,
+      "label": "Fix an ability to toggle a task",
+      "checked": false
+    },
+    {
+      "id": 4,
+      "label": "Fix an ability to delete a task",
+      "checked": false
+    },
+    {
+      "id": 5,
+      "label": "Fix an ability to count completed tasks",
+      "checked": false
     }
   ]
 }

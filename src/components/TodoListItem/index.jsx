@@ -3,7 +3,7 @@ import "./styles.css";
 
 const TodoListItem = ({ onCheck, checked, onDelete, label }) => {
   return(
-    <li className="list-group">
+    <li className="list-group mb-2">
     <div className="todo-list-item">
         <div
           tabIndex="0"
@@ -12,10 +12,13 @@ const TodoListItem = ({ onCheck, checked, onDelete, label }) => {
           className="todo-list-item-content"
         >
           <input
+            className="form-check-input"
             tabIndex="-1"
             type="checkbox"
             checked={checked}
             onChange={onCheck}
+            
+            
           />
           <span className={checked ? "todo-list-item-checked" : "none"}>{label}</span>
         </div>

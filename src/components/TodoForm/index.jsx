@@ -8,7 +8,7 @@ const TodoForm = () => {
 	const [value, setvalue] = useState("");
 	const dispatch = useDispatch();
 
-	const onSubmit = (event) => {
+	const onFormSubmit = (event) => {
 		//Evitamos que se actualice
 		event.preventDefault();
 		dispatch(
@@ -21,7 +21,7 @@ const TodoForm = () => {
 	return (
 		//retornamos el componente del formulario como tal
 		<div className="formbutton">
-			<form action="" onSubmit={onSubmit}>
+			<form action="" onSubmit={onFormSubmit} className="form-inline mt-3 mb-3">
 				<label htmlFor=""></label>
 				<div className="inputFormButton">
 					<input
@@ -33,7 +33,7 @@ const TodoForm = () => {
 						onChange={(event) => setvalue(event.target.value)}
 						className="form-control mb-2 p-2"
 					/>
-					<button type="submit" className="btn btn-primary p-2 mb-2">
+					<button disabled={!value} type="submit" className="btn btn-primary p-2 mb-2">
 						Submit
 					</button>
 				</div>
