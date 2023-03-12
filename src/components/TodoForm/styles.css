@@ -1,0 +1,19 @@
+.inputFormButton{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 400px;
+    gap: 10px;
+}
+
+.formbutton{
+    justify-content: center;
+    display: flex;
+}
+
+.form-control:focus{
+    box-shadow: none;
+    border: solid black;
+
+}
