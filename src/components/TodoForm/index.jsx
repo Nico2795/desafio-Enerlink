@@ -6,10 +6,11 @@ import "./styles.css";
 const TodoForm = () => {
 	//Creamos una variable de estado para este formulario, y luego una funcion que me permita ingresar un submit
 	const [value, setvalue] = useState("");
+
+	//Importamos el dispatch para poder enviar las acciones a nuestro store.
 	const dispatch = useDispatch();
 
 	const onFormSubmit = (event) => {
-		//Evitamos que se actualice
 		event.preventDefault();
 		dispatch(
 			addTodoAsync({
@@ -21,7 +22,7 @@ const TodoForm = () => {
 	return (
 		//retornamos el componente del formulario como tal
 		<div className="formbutton">
-			<form action="" onSubmit={onFormSubmit} className="form-inline mt-3 mb-3">
+			<form action="" onSubmit={onFormSubmit} className="form-inline">
 				<label htmlFor=""></label>
 				<div className="inputFormButton">
 					<input

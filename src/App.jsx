@@ -4,7 +4,7 @@ import TodoResults from "./components/TodoResults";
 import "./App.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import TodoForm from "components/TodoForm";
-import toast, { Toaster } from 'react-hot-toast';
+import { Toaster } from 'react-hot-toast';
 
 
 
